@@ -43,6 +43,14 @@ It helps a plumbing business owner check common ranking leaks across:
 - [Service Area Page Template](templates/service-area-page-template.md)
 - [Google Business Profile Checklist](templates/google-business-profile-checklist.md)
 
+## Download Pack
+
+The checklist and template pack lives in [`release-pack/`](release-pack/).
+
+Once a GitHub release is published, the ZIP download is:
+
+[`free-plumbing-seo-leak-check-toolkit.zip`](https://github.com/asirulhasan-eng/plumbing-seo-toolkit/releases/latest/download/free-plumbing-seo-leak-check-toolkit.zip)
+
 ## License
 
 MIT. Use, adapt, and share.

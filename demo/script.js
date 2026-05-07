@@ -3,8 +3,12 @@ const scoreEl = document.querySelector("#score");
 const progressEl = document.querySelector("#score-progress");
 const titleEl = document.querySelector("#result-title");
 const copyEl = document.querySelector("#result-copy");
+const contextEl = document.querySelector("#result-context");
 const priorityListEl = document.querySelector("#priority-list");
 const breakdownEl = document.querySelector("#breakdown");
+const copyPlanButton = document.querySelector("#copy-plan");
+const printPlanButton = document.querySelector("#print-plan");
+const copyStatusEl = document.querySelector("#copy-status");
 
 const categoryOrder = [
   "Google profile",
@@ -89,6 +93,46 @@ function renderPriorityList(inputs) {
     .join("");
 }
 
+function getContextLine() {
+  const company = document.querySelector("#company").value.trim();
+  const city = document.querySelector("#city").value.trim();
+
+  if (company && city) return `Action plan for ${company} in ${city}.`;
+  if (company) return `Action plan for ${company}.`;
+  if (city) return `Action plan for plumbing visibility in ${city}.`;
+  return "Add your company and service area to make the action plan easier to use.";
+}
+
+function buildPlainTextPlan() {
+  const priorities = [...priorityListEl.querySelectorAll("li")]
+    .map((item, index) => `${index + 1}. ${item.textContent.trim()}`)
+    .join("\n");
+  const breakdown = [...breakdownEl.querySelectorAll("div")]
+    .map((item) => {
+      const label = item.querySelector("span").textContent.trim();
+      const percent = item.querySelector("b").textContent.trim();
+      return `- ${label}: ${percent}`;
+    })
+    .join("\n");
+
+  return [
+    "Plumbing SEO Leak Check",
+    getContextLine(),
+    "",
+    `Score: ${scoreEl.textContent}`,
+    titleEl.textContent,
+    copyEl.textContent,
+    "",
+    "Category scores:",
+    breakdown,
+    "",
+    "Priority fixes:",
+    priorities,
+    "",
+    "Created with PlumbingSEO.agency: https://plumbingseo.agency/"
+  ].join("\n");
+}
+
 function updateScore() {
   const inputs = getInputs();
   const total = inputs.reduce((sum, input) => sum + Number(input.dataset.score || 0), 0);
@@ -104,6 +148,7 @@ function updateScore() {
   progressEl.style.strokeDashoffset = String(circumference - (circumference * score / 100));
   titleEl.textContent = result.title;
   copyEl.textContent = result.copy;
+  contextEl.textContent = getContextLine();
 
   const scores = calculateCategoryScores(inputs);
   renderBreakdown(scores);
@@ -116,3 +161,24 @@ form.addEventListener("submit", (event) => {
 });
 
 form.addEventListener("change", updateScore);
+
+form.addEventListener("input", () => {
+  contextEl.textContent = getContextLine();
+});
+
+copyPlanButton.addEventListener("click", async () => {
+  updateScore();
+  const text = buildPlainTextPlan();
+
+  try {
+    await navigator.clipboard.writeText(text);
+    copyStatusEl.textContent = "Action plan copied.";
+  } catch {
+    copyStatusEl.textContent = "Copy failed. Select the priority fixes and copy them manually.";
+  }
+});
+
+printPlanButton.addEventListener("click", () => {
+  updateScore();
+  window.print();
+});

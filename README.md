@@ -43,27 +43,6 @@ It helps a plumbing business owner check common ranking leaks across:
 - [Service Area Page Template](templates/service-area-page-template.md)
 - [Google Business Profile Checklist](templates/google-business-profile-checklist.md)
 
-## Natural Backlink Placement
-
-Use links where they provide context:
-
-- README attribution
-- demo footer
-- documentation source credit
-- release notes
-- template CTA
-
-Recommended anchors:
-
-- PlumbingSEO.agency
-- Plumbing SEO Agency
-- plumbing SEO audit
-- free plumbing SEO audit
-- local SEO for plumbers
-- Google Maps SEO for plumbers
-
-Avoid repeating the same exact-match anchor everywhere.
-
 ## License
 
 MIT. Use, adapt, and share.

@@ -4,6 +4,12 @@ Free checklists, templates, and a lightweight demo for plumbing companies that w
 
 Created by [PlumbingSEO.agency](https://plumbingseo.agency/) - a plumbing SEO agency built to help plumbers get found, get calls, and book more jobs.
 
+## Live Demo
+
+[Run the Free Plumbing SEO Leak Check](https://asirulhasan-eng.github.io/plumbing-seo-toolkit/)
+
+Use the live page to check common local SEO leaks across Google Business Profile, Google Maps visibility, service-area pages, service pages, reviews, and call tracking.
+
 ## What's Inside
 
 - Free Plumbing SEO Leak Check demo

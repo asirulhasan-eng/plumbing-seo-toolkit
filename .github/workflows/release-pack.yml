@@ -1,0 +1,28 @@
+name: Build Release Pack
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build ZIP
+        run: |
+          cd release-pack
+          zip -r ../free-plumbing-seo-leak-check-toolkit.zip .
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: free-plumbing-seo-leak-check-toolkit.zip
+          body_path: RELEASE_NOTES.md

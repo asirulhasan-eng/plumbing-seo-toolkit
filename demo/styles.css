@@ -141,6 +141,7 @@ main {
 .toolbox,
 .keyword-board,
 .resources,
+.download-pack,
 .signal-strip {
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -532,6 +533,28 @@ button {
   margin-top: 24px;
 }
 
+.download-pack {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+  margin-top: 24px;
+  padding: clamp(20px, 4vw, 34px);
+  background: linear-gradient(135deg, #fff, #f5fbfa);
+}
+
+.download-pack p {
+  max-width: 720px;
+  color: var(--gray);
+}
+
+.download-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
 .section-heading {
   max-width: 760px;
   margin-bottom: 22px;
@@ -638,6 +661,7 @@ footer p {
   .signal-strip,
   .tool-grid,
   .resource-grid,
+  .download-pack,
   .keyword-board {
     grid-template-columns: 1fr;
   }
@@ -676,6 +700,10 @@ footer p {
   .primary-link,
   .secondary-link {
     width: 100%;
+  }
+
+  .download-actions {
+    justify-content: stretch;
   }
 
   .route-map {

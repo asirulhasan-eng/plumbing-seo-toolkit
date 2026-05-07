@@ -93,7 +93,8 @@ nav a:hover {
 button,
 .result-cta,
 .primary-link,
-.secondary-link {
+.secondary-link,
+.result-tools button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -111,7 +112,8 @@ button,
 .header-cta:hover,
 button:hover,
 .result-cta:hover,
-.primary-link:hover {
+.primary-link:hover,
+.result-tools button:hover {
   background: var(--navy);
 }
 
@@ -201,6 +203,8 @@ h3 {
 .signal-strip span,
 .mini-card span,
 .results p,
+.result-context,
+.copy-status,
 fieldset label {
   color: var(--gray);
 }
@@ -522,6 +526,37 @@ button {
   color: var(--gray);
 }
 
+.result-context {
+  margin-top: -4px;
+  padding: 10px 12px;
+  border-left: 4px solid var(--green);
+  border-radius: 6px;
+  background: #f4fbf8;
+  font-weight: 750;
+}
+
+.result-tools {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.result-tools button {
+  min-height: 40px;
+  margin: 0;
+  padding: 0 12px;
+  background: var(--workwear);
+  font-size: 0.92rem;
+}
+
+.copy-status {
+  min-height: 22px;
+  margin: 8px 0 0;
+  font-size: 0.9rem;
+  font-weight: 750;
+}
+
 .result-cta {
   width: 100%;
   margin-top: 18px;
@@ -702,6 +737,10 @@ footer p {
     width: 100%;
   }
 
+  .result-tools {
+    grid-template-columns: 1fr;
+  }
+
   .download-actions {
     justify-content: stretch;
   }
@@ -721,5 +760,41 @@ footer p {
   .card-phone {
     left: 14px;
     bottom: 84px;
+  }
+}
+
+@media print {
+  .site-header,
+  .hero,
+  .signal-strip,
+  .checker,
+  .toolbox,
+  .keyword-board,
+  .resources,
+  .download-pack,
+  footer,
+  .result-tools,
+  .result-cta {
+    display: none;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  main {
+    width: 100%;
+    padding: 0;
+  }
+
+  .audit-layout {
+    display: block;
+    margin: 0;
+  }
+
+  .results {
+    position: static;
+    box-shadow: none;
+    border: 0;
   }
 }
